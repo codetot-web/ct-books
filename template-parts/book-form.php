@@ -21,7 +21,10 @@ else :
 			<span class="book-form__text"><?php printf(esc_html__('Welcome %s. Do you want to rent this book?', 'ct-books'), '<span>' . $current_user->user_nicename . '</span>'); ?></span>
 		</div>
 		<div class="book-form__col-right">
-			<a class="book-form__button" href="<?php echo $rent_book_url; ?>"><?php esc_html_e('Rent this book', 'ct-books'); ?></a>
+			<a class="book-form__button" href="<?php echo $rent_book_url; ?>">
+				<span class="button__text"><?php esc_html_e('Rent this book', 'ct-books'); ?></span>
+				<span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4.01 6.03l7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3L2 10l15 2-15 2 .01 7L23 12 2.01 3z"/></svg></span>
+			</a>
 		</div>
 	</div>
 <?php endif;

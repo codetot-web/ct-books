@@ -16,6 +16,7 @@ foreach ($fields as $id => $label) {
 
 if (!empty($data)) : ?>
 	<div class="book-meta">
+		<h3 class="book-meta__title"><?php esc_html_e('Book Detail', 'ct-books'); ?></h3>
 		<ul class="book-meta__list">
 			<?php foreach ($data as $row) : ?>
 				<li class="book-meta__item">

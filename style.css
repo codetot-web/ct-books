@@ -27,20 +27,26 @@ Version: 0.0.1
 /** Book Form **/
 .book-form--guest { margin-top: 1em; }
 .book-form--user { display: flex; flex-wrap: wrap; align-item: flex-start; margin-top: 1em; }
-.book-form--user .book-form__col-left { width: 100%; display: flex; align-items: center; padding: 20px; }
+.book-form--user .book-form__col-left { width: 100%; display: flex; align-items: center; }
 .book-form__icon { display: flex; }
-.book-form__icon, .book-form__icon svg { width: 24px; height: 24px;}
+.book-form__icon,
+.book-form__icon svg { width: 24px; height: 24px;}
 .book-form__text { flex: 1 1 0; padding-left: 10px; }
 .book-form__text span { font-weight: 700; }
-.book-form--user .book-form__col-right { width: 100%; padding: 20px; padding-top: 0; }
-.book-form__button { display: block; padding: 8px 15px; background: #333; color: #fff; font-size: 87.5%; text-align: center; transition: all 0.3s; border-radius: 6px; }
+.book-form--user .book-form__col-right { width: 100%; margin-top: 20px; }
+.book-form__button { display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: #333; color: #fff; font-size: 87.5%; text-align: center; transition: all 0.3s; border-radius: 6px; }
 .book-form__button:hover { background: #666; color: #fff; }
+.book-form__button .button__icon { width: 24px; height: 24px; display: flex; align-items: center; margin-left: 8px; }
+.book-form__button .button__icon svg { width: 24px; height: 24px; fill: #fff; }
 
 /** Book Meta - Single Book Template **/
-.book-meta__list { margin: 1em 0 0; padding: 0; list-style: none; width: 100%; border: 1px solid #eee; }
-.book-meta__item { font-size: 91.25%; padding: 5px 10px; background: #efefef; }
+.book-meta { margin: 1em 0 0 0; }
+.book-meta__title { margin: 0; font-size: 115%; font-weight: 700; }
+.book-meta__list { margin: 1em 0 0; padding: 0; list-style: none; width: 100%; border: 1px solid #eee; border-radius: 6px; overflow: hidden; }
+.book-meta__item { display: flex; justify-content: space-between; align-items: center; padding: 5px 10px; background: #efefef; font-size: 87.5%; }
 .book-meta__item:nth-child(even) { background: #fefefe; }
 .book-meta__label::after { content: ': '; }
+.book-meta__value { text-align: right; }
 
 /** Book Collection - Single Book Template **/
 .book-collection { margin: 1em 0 0 0; }
@@ -62,8 +68,12 @@ Version: 0.0.1
 .account-section { display: flex; flex-wrap: wrap; }
 .account-section__sidebar { width: 100%; margin-bottom: 1em; }
 .account-section__main { width: 100%; }
-.account-section__sidebar__title { margin-bottom: 0.5em; text-transform: uppercase; font-size: 75%; font-weight: 700; }
+.account-section__sidebar__title { margin-bottom: 1em; text-transform: uppercase; font-size: 75%; font-weight: 700; }
 .account-section__menu { margin: 0; padding: 0; list-style: none; }
+.account-section__menu__item { width: 100%; margin-bottom: 0.25em; }
+.account-section__menu__item:last-child { margin-bottom: 0; }
+.account-section__menu__link { font-size: 91.25%; }
+.account-section__menu__item.is-active .account-section__menu__link { color: #333; }
 
 /** Account section - Dashboard **/
 .account-section-dashboard__grid { display: flex; flex-wrap: wrap; margin: 0 -10px; }
@@ -84,6 +94,11 @@ Version: 0.0.1
 .search-form--book label { width: auto; flex: 1 1 0; }
 .search-form--book .search-field { width: 100%; }
 .search-form--book .search-submit { width: 47px; padding: 0; display: flex; align-items: center; justify-content: center; }
+
+/** Account tabs **/
+.account-tabs__header { position: relative; border-bottom: 1px solid #eee; }
+.account-tabs__header__item { position: relative; display: inline-block; padding: 22px; text-transform: uppercase; font-weight: 700; color: #444; text-align: center; outline: none; }
+.account-tabs__tab-panel { padding: 20px; }
 
 /** Responsive **/
 @media screen and (min-width: 480px) {
@@ -123,6 +138,11 @@ Version: 0.0.1
 
 	.account-section-dashboard__col:nth-child(-n+3) {
 		margin-top: 0;
+	}
+
+	.book-form--user .book-form__col-right {
+		margin-top: 0;
+		padding: 0 0 0 20px;
 	}
 
 	.book-list {

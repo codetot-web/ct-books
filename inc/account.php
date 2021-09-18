@@ -1,10 +1,38 @@
 <?php
 
+function ct_bones_get_account_page() {
+	return get_page_by_path('account');
+}
+
+function ct_bones_get_account_page_url() {
+	$account_page = ct_bones_get_account_page();
+
+	return !empty($account_page) ? get_permalink($account_page) : '';
+}
+
+function ct_bones_get_account_books_tabs() {
+	$items = [];
+
+
+	$items[] = array(
+		'id' => 'readed-books',
+		'title' => esc_html__('Readed Books', 'ct-books'),
+		'content' => 'Updating...'
+	);
+
+	$items[] = array(
+		'id' => 'pending-requests',
+		'title' => esc_html__('Pending Requests', 'ct-books'),
+		'content' => 'Updating...'
+	);
+
+	return $items;
+}
+
 function ct_books_get_account_boxes($user_id) {
 	$items = [];
 
-	$account_page = get_page_by_path('account');
-	$account_page_url = get_permalink($account_page);
+	$account_page_url = ct_bones_get_account_page_url();
 
 	if (empty($user_id)) {
 		return $items;
@@ -36,19 +64,21 @@ function ct_books_get_account_boxes($user_id) {
 }
 
 function ct_books_get_account_menu_items() {
-	$account_page = get_page_by_path('account');
-	$account_page_url = get_permalink($account_page);
+	$account_page_url = ct_bones_get_account_page_url();
 
 	return array(
 		array(
+			'is_active' => empty($_GET['view']),
 			'url' => $account_page_url,
 			'title' => esc_html__('Dashboard', 'ct-books')
 		),
 		array(
+			'is_active' => !empty($_GET['view']) && $_GET['view'] === 'books',
 			'url' => add_query_arg('view', 'books', $account_page_url),
 			'title' => esc_html__('Your Books', 'ct-books')
 		),
 		array(
+			'is_active' => !empty($_GET['view']) && $_GET['view'] === 'account',
 			'url' => add_query_arg('view', 'account', $account_page_url),
 			'title' => esc_html__('Account', 'ct-books')
 		),
