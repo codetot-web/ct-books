@@ -1,0 +1,118 @@
+/**
+Theme Name: CT Books
+Author: CODE TOT JSC
+Author URI: https://codetot.com
+Template: generatepress
+Version: 0.0.1
+**/
+
+* {
+	box-sizing: border-box;
+}
+
+/** Message Block **/
+.message-block { padding: 10px 20px; border: 1px solid #eee; border-left: 4px solid transparent; }
+.message-block.is-error { border-left-color: red; }
+.message-block.is-warning { border-left-color: yellow; }
+.message-block.is-succcess { border-left-color: green; }
+
+/** Book Status - Single Book Template **/
+.book-status { display: flex; align-items: center; margin: 1em 0 0; }
+.book-status__label { font-size: 91.25%; }
+.book-status__label::after { content: ': '; }
+.book-status__value { margin-left: 5px; padding: 2px 8px; border-radius: 6px; color: #fff; font-size: 75%; }
+.book-status.is-available .book-status__value { background: green; }
+.book-status.is-not-available .book-status__value { background: red; }
+
+/** Book Form **/
+.book-form--guest { margin-top: 1em; }
+.book-form--user { display: flex; flex-wrap: wrap; align-item: flex-start; margin-top: 1em; }
+.book-form--user .book-form__col-left { width: 100%; display: flex; align-items: center; padding: 20px; }
+.book-form__icon { display: flex; }
+.book-form__icon, .book-form__icon svg { width: 24px; height: 24px;}
+.book-form__text { flex: 1 1 0; padding-left: 10px; }
+.book-form__text span { font-weight: 700; }
+.book-form--user .book-form__col-right { width: 100%; padding: 20px; padding-top: 0; }
+.book-form__button { display: block; padding: 8px 15px; background: #333; color: #fff; font-size: 87.5%; text-align: center; transition: all 0.3s; border-radius: 6px; }
+.book-form__button:hover { background: #666; color: #fff; }
+
+/** Book Meta - Single Book Template **/
+.book-meta__list { margin: 1em 0 0; padding: 0; list-style: none; width: 100%; border: 1px solid #eee; }
+.book-meta__item { font-size: 91.25%; padding: 5px 10px; background: #efefef; }
+.book-meta__item:nth-child(even) { background: #fefefe; }
+.book-meta__label::after { content: ': '; }
+
+/** Book Collection - Single Book Template **/
+.book-collection { margin: 1em 0 0 0; }
+.book-collection__title { margin: 0; font-size: 115%; font-weight: 700; }
+.book-collection__list { margin: 0.5em 0 0 0; padding: 20px; list-style: none; border: 1px solid #efefef; border-radius: 6px; }
+.book-collection__row { display: flex; margin-bottom: 5px; }
+.book-collection__row:last-child { margin-bottom: 0; }
+.book-collection__text { font-weight: 700; }
+
+/** Account - Login form **/
+.entry-content #loginform { max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 6px; }
+.entry-content #loginform label { display: block; width: 100%; margin-bottom: 5px; font-weight: 700; font-size: 85%; }
+.entry-content #loginform input[type="password"],
+.entry-content #loginform input[type="text"] { width: 100%; }
+.entry-content #loginform p.login-submit { margin-bottom: 0; }
+.entry-content #loginform input[type="submit"] { width: 100%; text-align: center; }
+
+/** Account section **/
+.account-section { display: flex; flex-wrap: wrap; }
+.account-section__sidebar { width: 100%; margin-bottom: 1em; }
+.account-section__main { width: 100%; }
+.account-section__sidebar__title { margin-bottom: 0.5em; text-transform: uppercase; font-size: 75%; font-weight: 700; }
+.account-section__menu { margin: 0; padding: 0; list-style: none; }
+
+/** Archive page **/
+.book-list article { width: 100%; margin-bottom: 1em; }
+.book-list article .inside-article { padding: 10px 20px; border: 1px solid #eee; border-radius: 6px; }
+.book-list article .inside-article h2.entry-title { font-size: 100%; font-weight: 700; }
+.search-form--book { display: flex; padding: 20px; background: #fff; }
+.search-form--book label { width: auto; flex: 1 1 0; }
+.search-form--book .search-field { width: 100%; }
+.search-form--book .search-submit { width: 47px; padding: 0; display: flex; align-items: center; justify-content: center; }
+
+/** Responsive **/
+@media screen and (min-width: 480px) {
+	.book-form--user .book-form__col-left {
+		flex: 1 1 0;
+		width: auto;
+		padding-left: 0;
+	}
+
+	.book-form--user .book-form__col-right {
+		width: 200px;
+		padding-top: 20px;
+		padding-right: 0;
+	}
+
+	.book-collection__list {
+		column-count: 2;
+		column-gap: 40px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.account-section__sidebar {
+		width: 220px;
+	}
+
+	.account-section__main {
+		width: auto;
+		flex: 1 1 0;
+		padding-left: 20px;
+	}
+
+	.book-list {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -10px;
+	}
+
+	.book-list article {
+		width: 50%;
+		padding: 0 10px;
+	}
+}
