@@ -1,9 +1,7 @@
 <?php
-$account_boxes = array(get_current_user_id());
+$account_boxes = ct_books_get_account_boxes(get_current_user_id());
 
-if (!empty($account_boxes)) :
-?>
-
+if (!empty($account_boxes)) : ?>
 	<div class="account-section-dashboard">
 		<div class="account-section-dashboard__grid">
 			<?php foreach ($account_boxes as $account_box) : ?>

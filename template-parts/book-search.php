@@ -28,4 +28,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 	}
 	?>
+	<input type="hidden" name="post_type" value="book">
 </form>

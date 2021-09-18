@@ -3,9 +3,34 @@
 function ct_books_get_account_boxes($user_id) {
 	$items = [];
 
+	$account_page = get_page_by_path('account');
+	$account_page_url = get_permalink($account_page);
+
 	if (empty($user_id)) {
 		return $items;
 	}
+
+	$rented_book_number = 1;
+	$items[] = array(
+		'title' => esc_html__('Readed books', 'ct-books'),
+		'content' => sprintf(_n('%s book', '%s books', $rented_book_number, 'ct-books'), $rented_book_number),
+		'button_text' => __('View all', 'ct-books'),
+		'button_url' => add_query_arg(array(
+			'view'=> 'books',
+			'tab' => 'readed_books'
+		), $account_page_url)
+	);
+
+	$pending_request = 1;
+	$items[] = array(
+		'title' => esc_html__('Pending Request', 'ct-books'),
+		'content' => sprintf(_n('%s request', '%s requests', $pending_request, 'ct-books'), $pending_request),
+		'button_text' => __('View all', 'ct-books'),
+		'button_url' => add_query_arg(array(
+			'view' => 'books',
+			'tab' => 'pending_request'
+		), $account_page_url)
+	);
 
 	return $items;
 }
@@ -20,12 +45,12 @@ function ct_books_get_account_menu_items() {
 			'title' => esc_html__('Dashboard', 'ct-books')
 		),
 		array(
-			'url' => add_query_arg('view', 'rented_books', $account_page_url),
-			'title' => esc_html__('Rented Books', 'ct-books')
+			'url' => add_query_arg('view', 'books', $account_page_url),
+			'title' => esc_html__('Your Books', 'ct-books')
 		),
 		array(
-			'url' => add_query_arg('view', 'edit_account', $account_page_url),
-			'title' => esc_html__('Edit account', 'ct-books')
+			'url' => add_query_arg('view', 'account', $account_page_url),
+			'title' => esc_html__('Account', 'ct-books')
 		),
 		array(
 			'url' => wp_logout_url($account_page_url),
